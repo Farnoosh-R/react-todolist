@@ -1,0 +1,9 @@
+.TaskItem-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+}
+.TaskItem-box .d-flex{
+    align-items: baseline;
+}

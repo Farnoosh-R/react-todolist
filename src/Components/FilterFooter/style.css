@@ -1,0 +1,13 @@
+.FilterFooter{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #d1d1d1;
+    padding-top: 20px;
+}
+.active{
+    background: #9b59b6;
+}
+.active:hover{
+    background: #8e44ad;
+    transition-duration: 500ms;
+}

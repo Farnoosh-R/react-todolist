@@ -1,10 +1,33 @@
-.App {
+.App{
   text-align: center;
+  padding: 50px;
 }
+.content-holder {
+  padding: 50px;
+  max-width: 1000px;
+  min-width: 320px;
+  margin: 100px auto 50px auto;
+  box-shadow: 0px 0px 12px 8px #f0f0f0;
+}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+button{
+  background: #1abc9c;
+  border: #1abc9c;
+  color: #fff;
+}
+button:hover{
+  background: #16a085;
+  transition-duration: 500ms;
+}
+input{
+  border-radius: unset;
+  font-size: 18px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

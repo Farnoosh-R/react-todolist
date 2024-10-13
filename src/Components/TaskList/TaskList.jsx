@@ -1,10 +1,16 @@
-import React from "react";
 import TaskItem from "../TaskItem/TaskItem";
 
-const TaskList = () => {
+
+const TaskList = ({data}) => {
+
     return(
         <div className="TaskList">
-        <TaskItem />
+        {data.map((task, index) => {
+            return(
+                <TaskItem data={task} key={index}/>
+            )
+        })}
+        
         </div>
     )
 }

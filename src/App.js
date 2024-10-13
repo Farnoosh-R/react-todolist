@@ -5,6 +5,7 @@ import FilterFooter from './Components/FilterFooter/FilterFooter';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import TaskList from './Components/TaskList/TaskList';
+import TodoApp from './Components/TodoApp/TodoApp';
 
 
 function App() {
@@ -12,9 +13,7 @@ function App() {
     <div className="App">
     <Header />
     <div className='content-holder'>
-    <AddTaskForm />
-    <TaskList />
-    <FilterFooter />
+    <TodoApp />
     </div>
     <Footer />
     </div>

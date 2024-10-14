@@ -3,16 +3,14 @@ import React, { useState } from "react";
 
 const AddTaskForm = ({addItem}) => {
 
-    const [value, setValue] = useState('');
+
+const [value, setValue] = useState('');
 
 const handleChange = (e) => {
-    if (e){
-        e.preventDefault();
-        setValue(e.target.value);
-    }
-    console.log(value)
+    setValue(e.target.value);
 }
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+    e.preventDefault();
     if (!value || value === ''){
         return
     }

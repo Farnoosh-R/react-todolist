@@ -3,9 +3,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./style.css";
 
 const TaskItem = ({data}) => {
+  
   return (
-
-
     <div className="TaskItem">
       <div className="TaskItem-box">
         <div className="d-flex">
@@ -14,8 +13,6 @@ const TaskItem = ({data}) => {
         </div>
         <FaTrashAlt />
       </div>
-
-      
     </div>
   );
 };

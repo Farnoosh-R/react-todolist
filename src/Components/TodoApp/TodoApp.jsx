@@ -45,7 +45,7 @@ const deleteTask = (taskId) => {
         <div className="TodoApp">
         <AddTaskForm  addItem={addItem}/>
         <TaskList data={tasks} deleteTask={deleteTask}/>
-        <FilterFooter />
+        <FilterFooter data={tasks}/>
         </div>
     )
 }

@@ -1,10 +1,14 @@
 import React from "react";
 import './style.css'
 
-const FilterFooter = () => {
+const FilterFooter = ({data}) => {
+
+let dataLenght = data.length;
+
     return(
         <div className="FilterFooter">
-        <span>2 items</span>
+        <span>{`${dataLenght} item`}</span>
+        
 
         <div className="d-flex">
         <button className="active">All</button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import TaskList from "../TaskList/TaskList";
 import FilterFooter from "../FilterFooter/FilterFooter";
@@ -29,11 +29,22 @@ const TodoApp = () => {
                 status: false
             }
         ])
+        console.log(tasks)
     }
+
+const deleteTask = (taskId) => {
+    // let newTasks = tasks;
+    // delete newTasks[tasks.findIndex((item) => item.id == taskId)]
+    // newTasks.filter((item) => item)
+    // setTasks(newTasks)
+    const newTasks = tasks.filter((item) => item.id !== taskId);
+    setTasks(newTasks);
+}
+ 
     return(
         <div className="TodoApp">
         <AddTaskForm  addItem={addItem}/>
-        <TaskList  data={tasks}/>
+        <TaskList data={tasks} deleteTask={deleteTask}/>
         <FilterFooter />
         </div>
     )

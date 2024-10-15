@@ -6,6 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TodoApp = () => {
 
+    const [filter, setFilter] = useState('all');
+    const [filteredTask, setFilteredTask] = useState([]);
+    const [refresh, setrefresh] = useState(0);
+
     const [tasks, setTasks] = useState([
         {
             id: uuidv4(),
@@ -32,20 +36,36 @@ const TodoApp = () => {
         console.log(tasks)
     }
 
+        useEffect(() => {
+            if (filter === 'all'){
+                setFilteredTask(tasks);
+            } else if (filter === 'completed'){
+                setFilteredTask(tasks.filter(item => item.status))
+            }else if (filter === 'active'){
+                setFilteredTask(tasks.filter(item => !item.status))
+            }
+          console.log(filter)  
+        }, [filter, tasks, refresh])
+
 const deleteTask = (taskId) => {
-    // let newTasks = tasks;
-    // delete newTasks[tasks.findIndex((item) => item.id == taskId)]
-    // newTasks.filter((item) => item)
-    // setTasks(newTasks)
     const newTasks = tasks.filter((item) => item.id !== taskId);
     setTasks(newTasks);
 }
+
+const handleChecked = (taskId) => {
+    let newTaskschecked = tasks;
+    const taskIndex = tasks.findIndex((item) => item.id == taskId)
+    newTaskschecked[taskIndex].status = !newTaskschecked[taskIndex].status;
+    setTasks(newTaskschecked);
+    setrefresh(refresh + 1);
+}
+
  
     return(
         <div className="TodoApp">
         <AddTaskForm  addItem={addItem}/>
-        <TaskList data={tasks} deleteTask={deleteTask}/>
-        <FilterFooter data={tasks}/>
+        <TaskList data={filteredTask} deleteTask={deleteTask} handleChecked={handleChecked}/>
+        <FilterFooter data={filteredTask} updateFilter={setFilter}/>
         </div>
     )
 }

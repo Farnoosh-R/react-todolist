@@ -24,15 +24,25 @@ const TodoApp = () => {
     ]);
 
 
+useEffect(() => {
+    let storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+        storedTasks = JSON.parse(storedTasks);
+        setTasks(storedTasks);
+    }
+})
+
     const addItem = (newItem) => {
-        setTasks([
+        const newTasks = [
             ...tasks,
             {
                 id: uuidv4(),
                 title: newItem,
                 status: false
             }
-        ])
+        ]
+        setTasks(newTasks);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
         console.log(tasks)
     }
 
@@ -48,8 +58,10 @@ const TodoApp = () => {
         }, [filter, tasks, refresh])
 
 const deleteTask = (taskId) => {
+
     const newTasks = tasks.filter((item) => item.id !== taskId);
     setTasks(newTasks);
+    localStorage.setItem('tasks', JSON.stringify(newTasks));
 }
 
 const handleChecked = (taskId) => {
@@ -58,6 +70,7 @@ const handleChecked = (taskId) => {
     newTaskschecked[taskIndex].status = !newTaskschecked[taskIndex].status;
     setTasks(newTaskschecked);
     setrefresh(refresh + 1);
+    localStorage.setItem('tasks', JSON.stringify(newTaskschecked));
 }
 
  
